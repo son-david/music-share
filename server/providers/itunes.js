@@ -19,7 +19,6 @@ function fetchSongBySearch(song, callback) {
   search(makeSearchUrlWithSong(song), 50, function (err, songs) {
     if (err) {
       passOnWithUndefined(song, callback);
-      callback(new Error('iTunes search returned no results'), null);
     } else {
       songs.length ? verify(song, songs, callback) : passOnWithUndefined(song, callback);
     }
